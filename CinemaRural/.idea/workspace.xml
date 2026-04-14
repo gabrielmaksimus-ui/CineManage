@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="teste 3">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Teste.java" beforeDir="false" />
-    </list>
+    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="teste 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +84,7 @@
       <workItem from="1776139061401" duration="375000" />
       <workItem from="1776139749588" duration="627000" />
       <workItem from="1776168145801" duration="1637000" />
-      <workItem from="1776170242180" duration="1749000" />
+      <workItem from="1776170242180" duration="2106000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
