@@ -30,4 +30,4 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
