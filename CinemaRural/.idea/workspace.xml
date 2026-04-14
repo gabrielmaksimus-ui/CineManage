@@ -42,7 +42,6 @@
 }</component>
   <component name="ProjectId" id="3CKfCw7lEeV6M42W9XmpVtRgv0v" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -62,6 +61,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -84,7 +87,7 @@
       <workItem from="1776139061401" duration="375000" />
       <workItem from="1776139749588" duration="627000" />
       <workItem from="1776168145801" duration="1637000" />
-      <workItem from="1776170242180" duration="2106000" />
+      <workItem from="1776170242180" duration="3030000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
@@ -94,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776169517092</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="teste 3">
+      <option name="closed" value="true" />
+      <created>1776172392049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1776172392049</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +124,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".mvn remove" />
-    <option name="LAST_COMMIT_MESSAGE" value=".mvn remove" />
+    <MESSAGE value="teste 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="teste 3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
