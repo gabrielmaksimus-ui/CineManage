@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="teste 3" />
+    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="teste 4" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +56,7 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/gowkh/Documents/git-e-github/maks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,6 +70,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gowkh\Documents\git-e-github\maks" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -87,7 +93,7 @@
       <workItem from="1776139061401" duration="375000" />
       <workItem from="1776139749588" duration="627000" />
       <workItem from="1776168145801" duration="1637000" />
-      <workItem from="1776170242180" duration="3030000" />
+      <workItem from="1776170242180" duration="3336000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
@@ -105,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776172392049</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="teste 4">
+      <option name="closed" value="true" />
+      <created>1776173356295</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776173356295</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,7 +139,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".mvn remove" />
     <MESSAGE value="teste 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="teste 3" />
+    <MESSAGE value="teste 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="teste 4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
