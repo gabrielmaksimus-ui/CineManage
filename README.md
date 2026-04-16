@@ -26,7 +26,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 * Paulo Vinicius Lins Martins | https://github.com/PauloVini2004
 * Arthur Vinicius Flor Jordão Barbosa | https://github.com/Arthurdevvv
 * Julia Ellen Felix dos Santos Silva | https://github.com/JUS0110
-* Gededias Farias de Aguiar | 
+* Gededias Farias de Aguiar | https://github.com/Gede34games
 
 ## 📝 Licença
 
