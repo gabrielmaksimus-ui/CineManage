@@ -1,4 +1,4 @@
-package br.ufrpe.cine_rural;
+package br.ufrpe.cine_rural.loja;
 
 public class ItemVenda
 {

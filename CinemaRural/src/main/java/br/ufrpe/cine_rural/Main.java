@@ -1,4 +1,10 @@
 package br.ufrpe.cine_rural;
+import br.ufrpe.cine_rural.monitor.sala.SalaVip;
+import br.ufrpe.cine_rural.monitor.sala.SalaImax;
+import br.ufrpe.cine_rural.monitor.sala.SalaComum;
+import br.ufrpe.cine_rural.loja.Produto;
+import br.ufrpe.cine_rural.loja.VendaLojinha;
+import br.ufrpe.cine_rural.loja.ItemVenda;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,5 +45,16 @@ public class Main {
         // Teste 6: Finalizar venda
         System.out.println("\n=== Finalizando venda ===");
         venda.finalizarVenda();
+
+        // Criando Salas (Heranças)
+        SalaVip vip = new SalaVip(1, 40, 35.0, true);
+        SalaImax imax = new SalaImax(2, 100, 50.0, true);
+        SalaComum comum = new SalaComum(3, 80, 20.0);
+
+        System.out.println("Sala VIP tem serviço? " + vip.getServico());
+        System.out.println("Sala IMAX tem som 3D? " + imax.getSomEspecial());
+        System.out.println("Preço sala comum: " + comum.getPreco());
+
+
     }
 }

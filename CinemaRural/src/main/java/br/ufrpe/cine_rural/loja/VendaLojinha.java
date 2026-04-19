@@ -1,4 +1,4 @@
-package br.ufrpe.cine_rural;
+package br.ufrpe.cine_rural.loja;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class VendaLojinha {
     }
  
  
-    public void adicionarItem(Produto produto, int quantidade) {  
+    public void adicionarItem(Produto produto, int quantidade) {
         verificarEstoque(produto);
         ItemVenda NovoItem = new ItemVenda(quantidade, produto);
         itens.add(NovoItem);
