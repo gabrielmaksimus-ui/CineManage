@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="imagem pro readmee">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Comum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Imax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Sala.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Vip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/ItemVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/loja/ItemVenda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/loja/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/VendaLojinha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/loja/VendaLojinha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Filme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Ingresso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Ingresso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/Sessao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/sala/Sala.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/sala/SalaComum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/sala/SalaImax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/sala/SalaVip.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,33 +59,33 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/gowkh/Documents/git-e-github/maks",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;salas&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gowkh/Documents/git-e-github/maks&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gowkh\Documents\git-e-github\maks" />
@@ -125,7 +134,8 @@
       <workItem from="1776168145801" duration="1637000" />
       <workItem from="1776170242180" duration="4070000" />
       <workItem from="1776189349386" duration="1277000" />
-      <workItem from="1776612371608" duration="4753000" />
+      <workItem from="1776612371608" duration="6048000" />
+      <workItem from="1776681218443" duration="3611000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
