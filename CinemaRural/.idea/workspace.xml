@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="imagem pro readmee">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="imagem pro readmee" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +76,7 @@
       <recent name="C:\Users\gowkh\Documents\git-e-github\maks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gowkh\Documents\git-e-github\maks\CinemaRural\src\main\java\br\ufrpe\cine_rural" />
       <recent name="C:\Users\gowkh\Documents\git-e-github\maks\CinemaRural" />
     </key>
   </component>
@@ -122,7 +121,7 @@
       <workItem from="1776170242180" duration="4070000" />
       <workItem from="1776189349386" duration="1277000" />
       <workItem from="1776612371608" duration="6048000" />
-      <workItem from="1776681218443" duration="4418000" />
+      <workItem from="1776681218443" duration="4890000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
