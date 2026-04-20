@@ -1,7 +1,6 @@
 package br.ufrpe.cine_rural;
 import br.ufrpe.cine_rural.loja.Produto;
 import br.ufrpe.cine_rural.loja.VendaLojinha;
-import br.ufrpe.cine_rural.loja.ItemVenda;
 import br.ufrpe.cine_rural.monitor.Cliente;
 import br.ufrpe.cine_rural.monitor.Filme;
 import br.ufrpe.cine_rural.monitor.HerancaSala.Comum;

@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="04aa6610-8b67-41d3-91cf-27505aa413d7" name="Changes" comment="imagem pro readmee">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Sala.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Sala.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Imax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Imax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Vip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/cine_rural/monitor/HerancaSala/Vip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +127,7 @@
       <workItem from="1776189349386" duration="1277000" />
       <workItem from="1776612371608" duration="6048000" />
       <workItem from="1776681218443" duration="7825000" />
-      <workItem from="1776694024595" duration="325000" />
+      <workItem from="1776694024595" duration="1252000" />
     </task>
     <task id="LOCAL-00001" summary=".mvn remove">
       <option name="closed" value="true" />
