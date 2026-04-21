@@ -23,7 +23,11 @@ public class Sessao {
 
     //Adiciona os ingressos
     public void adicionarIngressos(Ingresso ingresso){
-        ingressos.add(ingresso);
+        
+        if(!ingressos.contains(ingresso)){
+            ingressos.add(ingresso);
+        }
+        
     }
 
     public String getIdioma() {
