@@ -1,4 +1,4 @@
-import HerancaSala.Sala;
+import br.ufrpe.cine_rural.HerancaSala.*;
 
 import java.time.LocalTime;
 import java.time.LocalDateTime;

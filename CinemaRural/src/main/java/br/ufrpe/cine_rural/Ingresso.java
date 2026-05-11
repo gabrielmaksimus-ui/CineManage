@@ -1,3 +1,5 @@
+import br.ufrpe.cine_rural.HerancaSala.*;
+
 public class Ingresso {
     private String assento;
     private boolean acompanhante;

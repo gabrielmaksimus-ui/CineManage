@@ -1,4 +1,4 @@
-package HerancaSala;
+package br.ufrpe.cine_rural.HerancaSala;
 
 public class Comum extends Sala{
 
