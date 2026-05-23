@@ -1,4 +1,4 @@
-package br.ufrpe.cine_rural;
+package main.java.br.ufrpe.cine_rural.model.beans.loja;
 
 public class Produto {
     private int id;

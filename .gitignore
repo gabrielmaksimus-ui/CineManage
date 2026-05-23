@@ -40,4 +40,6 @@ build/
 
 echo ".idea/" >> .gitignore
 
-.mvn
+.idea/
+*.iml
+out/
