@@ -18,7 +18,7 @@ public class Filme {
                  String sinopse,
                  Genero genero,
                  ClassificacaoIndicativa classificacao,
-                 LocalTime localTime) {
+                 int duracao) {
 
         this.genero = genero;
         this.titulo = titulo;
