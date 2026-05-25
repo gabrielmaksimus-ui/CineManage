@@ -17,7 +17,7 @@ public class FilmeController {
     private final iRepositorioFilme repositorioFilme;
     private final SessaoController sessaoController;
 
-    // Limiar para considerar um filme com "baixa procura" (REQ16)
+    // Limiar para considerar um filme com "baixa procura" 
     private static final int LIMIAR_BAIXA_PROCURA = 10;
 
     public FilmeController(iRepositorioFilme repositorioFilme, SessaoController sessaoController) {
