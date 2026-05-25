@@ -1,130 +1,115 @@
 package main.java.br.ufrpe.cine_rural.controllers;
 
-import main.java.br.ufrpe.cine_rural.dados.implemento.RepositorioSessaoImpl;
+import main.java.br.ufrpe.cine_rural.dados.interfaces.iRepositorioSessao;
+
+
 import main.java.br.ufrpe.cine_rural.enums.Idioma;
+import main.java.br.ufrpe.cine_rural.enums.StatusSessao;
 import main.java.br.ufrpe.cine_rural.model.beans.Filme;
-import main.java.br.ufrpe.cine_rural.model.beans.tiposala.Sala;
 import main.java.br.ufrpe.cine_rural.model.beans.Ingresso;
 import main.java.br.ufrpe.cine_rural.model.beans.Sessao;
-import main.java.br.ufrpe.cine_rural.enums.StatusSessao;
+import main.java.br.ufrpe.cine_rural.model.beans.tiposala.Sala;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-
 public class SessaoController {
+    private final iRepositorioSessao repositorioSessao;
 
-    private final RepositorioSessaoImpl repositorio;
-
-    public SessaoController(RepositorioSessaoImpl repositorio) {
-        this.repositorio = repositorio;
+    public SessaoController(iRepositorioSessao repositorioSessao) {
+        this.repositorioSessao = repositorioSessao;
     }
 
 
-    public Sessao criarSessao(Filme filme, Sala sala,
-                               LocalDateTime horario, Idioma idioma) {
+    public void cadastrarSessao(Filme filme, Sala sala, LocalDateTime horario, Idioma idioma) {
+        if (filme == null || sala == null || horario == null || idioma == null) {
+            throw new IllegalArgumentException("Todos os campos da sessão são obrigatórios.");
+        }
+        if (horario.isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Horário da sessão não pode ser no passado.");
+        }
 
-        validarParametros(filme, sala, horario, idioma);
-        verificarSobreposicao(sala, horario, filme); // REQ20
-
-        Sessao sessao = new Sessao(idioma, StatusSessao.ABERTA, horario, filme, sala);
-
-        repositorio.cadastrar(sessao);
-        System.out.println("[SessaoController] Sessão criada: "
-                + filme.getTitulo() + " | Sala #" + sala.getId() + " | " + horario);
-        return sessao;
-    }
-
-    public void iniciarExibicao(Sessao sessao) {
-        if (!StatusSessao.ABERTA.equals(sessao.getStatus()))
-            throw new IllegalStateException("Somente sessões ABERTAS podem iniciar exibição.");
-        sessao.setStatus(StatusSessao.EM_EXIBICAO);
-        repositorio.atualizar(sessao);
-        System.out.println("[SessaoController] Sessão em exibição.");
-    }
-
-    public void encerrarSessao(Sessao sessao) {
-        if (StatusSessao.ENCERRADA.equals(sessao.getStatus()))
-            throw new IllegalStateException("Sessão já está encerrada.");
-        sessao.setStatus(StatusSessao.ENCERRADA);
-        repositorio.atualizar(sessao);
-        System.out.println("[SessaoController] Sessão encerrada.");
-    }
-
-    public void adicionarIngresso(Sessao sessao, Ingresso ingresso) {
-        if (StatusSessao.ENCERRADA.equals(sessao.getStatus()))
-            throw new IllegalStateException("Sessão encerrada; não é possível adicionar ingressos.");
-
-        boolean ocupado = false;
-        if (sessao.getIngressos() != null) {
-            for (Ingresso i : sessao.getIngressos()) {
-                if (i.getAssento().getCodigo().equalsIgnoreCase(ingresso.getAssento().getCodigo())) {
-                    ocupado = true;
+       // verifica sobreposição de horário na mesma sala
+        for (Sessao s : repositorioSessao.listar()) {
+            if (s.getSala().getId() == sala.getId()) {
+                long diffMinutos = Math.abs(java.time.Duration.between(s.getHorario(), horario).toMinutes());
+                if (diffMinutos < filme.getDuracao()) {
+                    throw new IllegalStateException(
+                            "Conflito de horário: já existe sessão na sala " + sala.getId()
+                                    + " às " + s.getHorario()
+                    );
                 }
             }
         }
-        if (ocupado)
+
+        Sessao sessao = new Sessao(idioma, StatusSessao.ABERTA, horario, filme, sala);
+        repositorioSessao.cadastrar(sessao);
+    }
+
+
+     //- Atualiza o status de uma sessão (ABERTA, EM_EXIBICAO, ENCERRADA).
+
+    public void atualizarStatus(LocalDateTime horario, StatusSessao novoStatus) {
+        Sessao sessao = buscarSessao(horario);
+        sessao.setStatus(novoStatus);
+        repositorioSessao.atualizar(sessao);
+    }
+
+
+     // Impede alteração de filme em sessões com ingressos já vendidos
+
+    public void atualizarFilme(LocalDateTime horario, Filme novoFilme) {
+        Sessao sessao = buscarSessao(horario);
+        if (!sessao.getIngressos().isEmpty()) {
             throw new IllegalStateException(
-                    "Assento '" + ingresso.getAssento() + "' já está ocupado. (REQ21)");
-        sessao.adicionarIngressos(ingresso);
-        repositorio.atualizar(sessao);
-    }
-
-
-    public void removerIngresso(Sessao sessao, Ingresso ingresso) {
-        if (sessao.getIngressos() != null)
-            sessao.getIngressos().remove(ingresso);
-        repositorio.atualizar(sessao);
-    }
-
-
-    public void alterarFilmeDaSessao(Sessao sessao, Filme novoFilme) {
-        if (sessao.getIngressos() != null && !sessao.getIngressos().isEmpty())
-            throw new IllegalStateException(
-                    "Não é possível alterar o filme: sessão já possui ingressos vendidos. (REQ24)");
-        sessao.setFilme(novoFilme);
-        repositorio.atualizar(sessao);
-        System.out.println("[SessaoController] Filme alterado para '" + novoFilme.getTitulo() + "'.");
-    }
-
-
-    public ArrayList<Sessao> listarSessoes() {
-        return repositorio.listar();
-    }
-
-    public Sessao buscarPorHorario(LocalDateTime horario) {
-        return repositorio.buscar(horario);
-    }
-
-    public void removerSessao(LocalDateTime horario) {
-        repositorio.remover(horario);
-    }
-
-    private void verificarSobreposicao(Sala sala, LocalDateTime novoInicio, Filme filme) {
-        long duracaoNova = filme.getDuracao();
-        LocalDateTime novoFim = novoInicio.plusMinutes(duracaoNova);
-
-        for (Sessao s : repositorio.listar()) {
-            if (s.getSala().getId() != sala.getId()) continue;
-            if (StatusSessao.ENCERRADA.equals(s.getStatus())) continue;
-
-            long duracaoExistente = s.getFilme().getDuracao();
-            LocalDateTime existFim = s.getHorario().plusMinutes(duracaoExistente);
-
-            boolean sobrepoe = novoInicio.isBefore(existFim)
-                            && novoFim.isAfter(s.getHorario());
-            if (sobrepoe)
-                throw new IllegalStateException(
-                        "Conflito de horário: sala #" + sala.getId()
-                        + " ocupada de " + s.getHorario() + " até " + existFim);
+                    "Não é possível alterar o filme de uma sessão com ingressos já vendidos."
+            );
         }
+        sessao.setFilme(novoFilme);
+        repositorioSessao.atualizar(sessao);
     }
 
-    private void validarParametros(Filme filme, Sala sala,
-                                   LocalDateTime horario, Idioma idioma) {
-        if (filme   == null) throw new IllegalArgumentException("Filme é obrigatório.");
-        if (sala    == null) throw new IllegalArgumentException("Sala é obrigatória.");
-        if (horario == null) throw new IllegalArgumentException("Horário é obrigatório.");
-        if (idioma  == null) throw new IllegalArgumentException("Idioma é obrigatório.");
+
+     // Adiciona um ingresso a uma sessão.
+     void adicionarIngresso(LocalDateTime horario, Ingresso ingresso) {
+        Sessao sessao = buscarSessao(horario);
+        sessao.adicionarIngressos(ingresso);
+        repositorioSessao.atualizar(sessao);
+    }
+
+
+     //Busca uma sessão pelo horário.
+
+    public Sessao buscarSessao(LocalDateTime horario) {
+        Sessao sessao = repositorioSessao.buscar(horario);
+        if (sessao == null) {
+            throw new IllegalArgumentException("Sessão não encontrada para o horário: " + horario);
+        }
+        return sessao;
+    }
+
+    /**
+     * Lista todas as sessões cadastradas.
+     */
+    public ArrayList<Sessao> listarSessoes() {
+        return repositorioSessao.listar();
+    }
+
+    /**
+     * Remove uma sessão pelo horário.
+     */
+    public void removerSessao(LocalDateTime horario) {
+        buscarSessao(horario); // garante existência
+        repositorioSessao.remover(horario);
+    }
+
+    /**
+     * Verifica se a sessão já iniciou (útil para REQ23).
+     */
+    public boolean sessaoJaIniciou(LocalDateTime horario) {
+        Sessao sessao = buscarSessao(horario);
+        return sessao.getStatus() == StatusSessao.EM_EXIBICAO
+                || sessao.getStatus() == StatusSessao.ENCERRADA
+                || LocalDateTime.now().isAfter(sessao.getHorario());
     }
 }
