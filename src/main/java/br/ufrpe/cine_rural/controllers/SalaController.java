@@ -20,7 +20,7 @@ public class SalaController {
     public Comum cadastrarSalaComum(int id, int capacidade) {
         validarIdUnico(id);
         validarCapacidade(capacidade);
-        Comum sala = new Comum(id, capacidade);   // construtor real do seu projeto
+        Comum sala = new Comum(id, capacidade);  
         repositorioSala.cadastrar(sala);
         System.out.println("[SalaController] Sala Comum #" + id + " cadastrada (cap.: " + capacidade + ").");
         return sala;
@@ -30,7 +30,7 @@ public class SalaController {
     public Vip cadastrarSalaVip(int id, int capacidade) {
         validarIdUnico(id);
         validarCapacidade(capacidade);
-        Vip sala = new Vip(id, capacidade);        // construtor real do seu projeto
+        Vip sala = new Vip(id, capacidade);        
         repositorioSala.cadastrar(sala);
         System.out.println("[SalaController] Sala VIP #" + id + " cadastrada (cap.: " + capacidade + ").");
         return sala;
@@ -40,7 +40,7 @@ public class SalaController {
     public Imax cadastrarSalaImax(int id, int capacidade) {
         validarIdUnico(id);
         validarCapacidade(capacidade);
-        Imax sala = new Imax(id, capacidade);      // construtor real do seu projeto
+        Imax sala = new Imax(id, capacidade);      
         repositorioSala.cadastrar(sala);
         System.out.println("[SalaController] Sala IMAX #" + id + " cadastrada (cap.: " + capacidade + ").");
         return sala;
@@ -57,7 +57,7 @@ public class SalaController {
         return repositorioSala.buscar(id);
     }
 
-    /** Filtra salas por subtipo (Comum.class, Vip.class ou Imax.class). */
+    // Filtra salas por subtipo (Comum.class, Vip.class ou Imax.class)
     public List<Sala> listarPorTipo(Class<? extends Sala> tipo) {
         List<Sala> resultado = new ArrayList<>();
         for (Sala sala : repositorioSala.listar()) {
