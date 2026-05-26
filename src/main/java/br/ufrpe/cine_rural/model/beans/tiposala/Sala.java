@@ -21,4 +21,16 @@ public abstract class Sala {
     public double getPreco() {
         return preco;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
 }

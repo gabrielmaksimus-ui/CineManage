@@ -6,20 +6,8 @@ import main.java.br.ufrpe.cine_rural.model.beans.tiposala.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Controller responsável pelo cadastro e gestão de salas.
- *
- * REQ03 – Cadastrar salas com identificação e capacidade total de assentos.
- * REQ04 – Herança: Comum (preco=1.0), VIP (preco=3.0), IMAX (preco=2.0).
- *
- * Os construtores reais do seu código:
- *   Comum(int id, int capacidade)  → super(id, capacidade, 1.0)
- *   Imax (int id, int capacidade)  → super(id, capacidade, 2.0)
- *   Vip  (int id, int capacidade)  → super(id, capacidade, 3.0)
- *
- * O preço base é fixado pelo tipo de sala, mas pode ser sobrescrito via
- * atualizarPreco() para promoções específicas.
- */
+
+ // Controller responsável pelo cadastro e gestão de salas
 public class SalaController {
 
     private final RepositorioSalaImpl repositorioSala;
