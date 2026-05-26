@@ -5,13 +5,13 @@ import main.java.br.ufrpe.cine_rural.enums.ClassificacaoIndicativa;
 import main.java.br.ufrpe.cine_rural.enums.Genero;
 import main.java.br.ufrpe.cine_rural.model.beans.Filme;
 import main.java.br.ufrpe.cine_rural.model.beans.Sessao;
+import main.java.br.ufrpe.cine_rural.controllers.SessaoController;
 import main.java.br.ufrpe.cine_rural.dados.interfaces.iRepositorioFilme;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class FilmeController {
     private final iRepositorioFilme repositorioFilme;
@@ -75,7 +75,7 @@ public class FilmeController {
         repositorioFilme.remover(titulo);
     }
 
-
+    /*
     public Map<String, String> gerarRelatorioBilheteria() {
         Map<String, String> relatorio = new HashMap<>();
 
@@ -126,5 +126,7 @@ public class FilmeController {
 
         return filmesAlerta;
     }
+     */
+
 }
 
