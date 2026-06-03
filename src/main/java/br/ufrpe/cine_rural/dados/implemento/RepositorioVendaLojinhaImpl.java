@@ -1,11 +1,11 @@
-package br.ufrpe.cine_rural.dados.implemento;
+package main.java.br.ufrpe.cine_rural.dados.implemento;
 
-import br.ufrpe.cine_rural.dados.interfaces.RepositorioVendaLojinha;
-import br.ufrpe.cine_rural.negocio.loja.VendaLojinha;
+import main.java.br.ufrpe.cine_rural.dados.interfaces.iRepositorioVendaLojinha;
+import main.java.br.ufrpe.cine_rural.model.beans.loja.VendaLojinha;
 import java.util.ArrayList;
 
 
-public class RepositorioVendaLojinhaImpl implements RepositorioVendaLojinha {
+public class RepositorioVendaLojinhaImpl implements iRepositorioVendaLojinha {
 
     private ArrayList<VendaLojinha> vendas;
 

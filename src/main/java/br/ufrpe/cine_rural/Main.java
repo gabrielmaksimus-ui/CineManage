@@ -1,16 +1,16 @@
-package br.ufrpe.cine_rural;
-import br.ufrpe.cine_rural.dados.implemento.RepositorioClienteImpl;
-import br.ufrpe.cine_rural.dados.interfaces.RepositorioCliente;
-import br.ufrpe.cine_rural.negocio.loja.Produto;
-import br.ufrpe.cine_rural.negocio.loja.VendaLojinha;
-import br.ufrpe.cine_rural.negocio.beans.Cliente;
-import br.ufrpe.cine_rural.negocio.beans.Filme;
-import br.ufrpe.cine_rural.negocio.beans.tipoSala.Comum;
-import br.ufrpe.cine_rural.negocio.beans.tipoSala.Imax;
-import br.ufrpe.cine_rural.negocio.beans.tipoSala.Sala;
-import br.ufrpe.cine_rural.negocio.beans.tipoSala.Vip;
-import br.ufrpe.cine_rural.negocio.beans.Ingresso;
-import br.ufrpe.cine_rural.negocio.beans.Sessao;
+package main.java.br.ufrpe.cine_rural;
+
+import main.java.br.ufrpe.cine_rural.controllers.*;
+import main.java.br.ufrpe.cine_rural.dados.implemento.*;
+import main.java.br.ufrpe.cine_rural.enums.*;
+import main.java.br.ufrpe.cine_rural.model.beans.*;
+import main.java.br.ufrpe.cine_rural.model.beans.tiposala.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+import main.java.br.ufrpe.cine_rural.model.beans.*;
+
+import main.java.br.ufrpe.cine_rural.model.beans.tiposala.Imax;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -18,148 +18,47 @@ import java.time.LocalTime;
 public class Main {
 
     public static void main(String[] args) {
+        RepositorioSessaoImpl repositorio = new RepositorioSessaoImpl();
+        SessaoController controller = new SessaoController(repositorio);
 
-        // Criando produtos
-        Produto p1 = new Produto(1, "Pipoca", 10.00, 50);
-        Produto p2 = new Produto(2, "Refrigerante", 7.50, 30);
-        Produto p3 = new Produto(3, "Chocolate", 5.00, 0); // sem estoque
+        RepositorioClienteImpl repositorioCliente = new RepositorioClienteImpl();
+        ClienteController cController = new ClienteController(repositorioCliente);
 
-        // Criando uma venda
-        VendaLojinha venda = new VendaLojinha();
+        Comum sala = new Comum(1, 20);
+        Imax salaImax = new Imax(1, 150);
 
-        // Teste 1: Adicionar itens normais
-        System.out.println("=== Adicionando itens ===");
-        venda.adicionarItem(p1, 2); // 2 pipocas
-        venda.adicionarItem(p2, 3); // 3 refrigerantes
+        Filme filme = new Filme(
+                "Interestelar",
+                "Um grupo de astronautas viaja através de um buraco de minhoca em busca de um novo lar para a humanidade.",
+                Genero.FICCAO,
+                ClassificacaoIndicativa.DEZESSEIS,
+                120
+        );
 
-        // Teste 2: Tentar adicionar produto sem estoque
-        System.out.println("\n=== Testando estoque vazio ===");
+        LocalDateTime horario = LocalDateTime.of(2025, 6, 10, 19, 0);
+
+        System.out.println("=== TESTE 1: Criar sessão ===");
+        Sessao sessao = controller.criarSessao(filme, sala, horario, Idioma.DUBLADO);
+        System.out.println("Sessão criada com status: " + sessao.getStatus());
+
+        Assento assento = new Assento("1");
+        Ingresso ingresso = new Ingresso(sessao, assento, 25.0, CategoriaMeiaEntrada.ESTUDANTE);
+
+        cController.cadastrarCliente("Arthur", "121", 23, "neve.com");
+        cController.atualizarCliente(repositorioCliente.buscar("121"), "Paulo", 21, "Paulo.com");
+        System.out.println(cController.listarClientes());
+
+        System.out.println("\n=== TESTE 2: Sobreposição de horário ===");
+        LocalDateTime horarioConflitante = LocalDateTime.of(2025, 6, 10, 20, 0);
         try {
-            venda.adicionarItem(p3, 1);
-        } catch (RuntimeException e) {
+            controller.criarSessao(filme, sala, horarioConflitante, Idioma.DUBLADO);
+        } catch (IllegalStateException e) {
             System.out.println("Erro esperado: " + e.getMessage());
         }
 
-        // Teste 3: Remover quantidade parcial
-        System.out.println("\n=== Removendo 1 refrigerante ===");
-        venda.removerItem(p2, 1); // remove 1 dos 3
+        System.out.println("\n=== TESTE 3: Encerrar sessão ===");
+        controller.encerrarSessao(sessao);
+        System.out.println("Status final: " + sessao.getStatus());
 
-        // Teste 4: Remover item completamente
-        System.out.println("\n=== Removendo todas as pipocas ===");
-        venda.removerItem(p1, 10); // quantidade maior que o adicionado → remove tudo
-
-        // Teste 5: Tentar remover produto que não está na venda
-        System.out.println("\n=== Removendo produto não adicionado ===");
-        venda.removerItem(p3, 1);
-
-        // Teste 6: Finalizar venda
-        System.out.println("\n=== Finalizando venda ===");
-        venda.finalizarVenda();
-
-        //Criando Salas
-        Comum salaComum = new Comum(1, 100);
-        Imax salaImax = new Imax(2, 50);
-        Vip salaVip = new Vip(3, 20);
-
-        //Criando Filme (teste 1)
-        Filme filmeAcao = new Filme("Vingadores",
-                "Herois que salvam o mundo",
-                "Acao",
-                12,
-                LocalTime.of(2,30)
-        );
-        //Criando Filme (teste 2)
-        Filme filmeDrama = new Filme(
-                "O Poderoso Chefão",
-                "Família mafiosa italiana",
-                "Drama",
-                16,
-                LocalTime.of(2, 55)
-        );
-
-        //Criando Clientes (teste)
-
-        Cliente clienteAdulto = new Cliente("Gededias God", "123.456.789-00", 69);
-        Cliente clienteMenor = new Cliente ("Gededias God Jr.", "987-654-321-00", 14);
-
-        //Criando Sessões (teste)
-
-        Sessao sessaoAcao = new Sessao("Dublado",
-                "Disponível",
-                LocalDateTime.now(),
-                filmeAcao,
-                salaComum);
-        Sessao sessaoDrama = new Sessao("Legendado",
-                "Disponível",
-                LocalDateTime.now().plusHours(3),
-                filmeDrama,
-                salaImax);
-
-        // Criando Ingressos (teste)
-        System.out.println("\n=== SISTEMA DO CINEMA ===");
-
-        // Ingresso Adulto
-        Ingresso ingresso1 = new Ingresso("A1", false, false, 50.0, clienteAdulto, sessaoAcao);
-        sessaoAcao.adicionarIngressos(ingresso1);
-
-        System.out.println("Ingresso criado: " + clienteAdulto.getNome() +
-                " - Assento: " + ingresso1.getAssento() +
-                " - Preço: R$" + ingresso1.getPreco());
-
-        // Testar verificação de idade
-        System.out.println("Gededias-Pai pode assistir? " + ingresso1.VerificarIdade(sessaoAcao, clienteAdulto, false));
-
-        // Ingresso meia-entrada para menor com acompanhante (Caso Especial)
-        Ingresso ingresso2 = new Ingresso("A2", true, true, 25.0, clienteMenor, sessaoAcao);
-        ingresso2.setPreco(25.0, sessaoAcao, true); // Testando meia entrada
-        sessaoAcao.adicionarIngressos(ingresso2);
-
-        System.out.println("Junior (meia) pode assistir com acompanhante? " +
-                ingresso2.VerificarIdade(sessaoAcao, clienteMenor, true));
-
-        // Listar ingressos da sessão
-        System.out.println("\n=== INGRESSOS DA SESSÃO ===");
-        for (Ingresso i : sessaoAcao.getIngressos()) {
-            System.out.println("- " + i.getCliente().getNome() +
-                    " | " + i.getAssento() +
-                    " | R$" + i.getPreco() +
-                    " | Meia: " + i.getMeiaEntrada());
-        }
-
-        // Informações da sessão
-        System.out.println("\n=== INFORMAÇÕES DA SESSÃO ===");
-        System.out.println("Filme: " + sessaoAcao.getFilme().getTitulo());
-        System.out.println("Sala: " + sessaoAcao.getSala().getId() +
-                " (Preço base: R$" + sessaoAcao.getSala().getPreco() + ")");
-        System.out.println("Total ingressos: " + sessaoAcao.getTotalIngressos());
-
-        // Exibindo informações das salas
-        System.out.println("\n=== SALAS DO CINEMA ===");
-        exibirSala(salaComum);
-        exibirSala(salaImax);
-        exibirSala(salaVip);
-
-        // Impressão de Salas teste usando Polimorfismo
-        Sala[] salas = {salaComum, salaImax, salaVip};
-        System.out.println("\n=== LISTA DE SALAS ===");
-        for (Sala sala : salas) {
-            System.out.println("Sala ID: " + sala.getId()
-                    + " | Capacidade: " + sala.getCapacidade()
-                    + " | Preço: R$" + sala.getPreco());
     }
 }
-    // Método para exibirSalas
-    public static void exibirSala(Sala sala) {
-        System.out.println("Tipo: " + sala.getClass().getSimpleName()
-                + " | ID: " + sala.getId()
-                + " | Capacidade: " + sala.getCapacidade()
-                + " | Preço: R$" + sala.getPreco());
-    }
-}
-
-
-
-
-
-
-
