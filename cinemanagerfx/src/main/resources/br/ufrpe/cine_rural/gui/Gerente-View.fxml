@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="179.0" fitWidth="440.0" pickOnBounds="true" style="-fx-translate-y: 50;">
                <image>
-                  <Image url="@Imagens/Fita_Filme_Decor.png" />
+                  <Image url="@ImagensProduto/Fita_Filme_Decor.png" />
                </image>
             </ImageView>
             <TextFlow layoutX="259.0" prefHeight="168.0" prefWidth="606.0" style="-fx-translate-y: 50;" textAlignment="CENTER">
