@@ -1,4 +1,4 @@
-package br.ufrpe.cine_rural.negocios;
+package br.ufrpe.cine_rural.controllers;
 
 import br.ufrpe.cine_rural.dados.interfaces.IRepositorioSessao;
 
@@ -12,10 +12,10 @@ import br.ufrpe.cine_rural.model.tiposala.Sala;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class SessaoNegocios {
+public class SessaoController {
     private final IRepositorioSessao repositorioSessao;
 
-    public SessaoNegocios(IRepositorioSessao repositorioSessao) {
+    public SessaoController(IRepositorioSessao repositorioSessao) {
         this.repositorioSessao = repositorioSessao;
     }
 
@@ -41,7 +41,7 @@ public class SessaoNegocios {
             }
         }
 
-        Sessao sessao = new Sessao(idioma, StatusSessao.ABERTA, horario, filme, sala);
+        Sessao sessao = new Sessao(filme, sala, horario, idioma, StatusSessao.ABERTA);
         repositorioSessao.cadastrar(sessao);
     }
 

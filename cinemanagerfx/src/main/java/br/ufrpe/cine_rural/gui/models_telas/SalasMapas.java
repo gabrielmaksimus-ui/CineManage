@@ -1,4 +1,4 @@
-package br.ufrpe.cine_rural.gui.dto;
+package br.ufrpe.cine_rural.gui.models_telas;
 
 public class SalasMapas {
 
