@@ -2,7 +2,8 @@ package br.ufrpe.cine_rural.gui.controllers_telas;
 
 import br.ufrpe.cine_rural.enums.ClassificacaoIndicativa;
 import br.ufrpe.cine_rural.enums.Idioma;
-import br.ufrpe.cine_rural.gui.dto.SalasMapas;
+import br.ufrpe.cine_rural.gui.models_telas.SalasMapas;
+import br.ufrpe.cine_rural.gui.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,6 +121,15 @@ public class AssentoController {
                         );
 
                         Scene scene = new Scene(loader.load());
+
+                        FilmesController controller = loader.getController();
+                        /*
+                        controller.setRepositorios(
+                                Main.filmes,
+                                Main.sessoes
+                        );
+                         */
+
                         scene.getStylesheets().add(
                                 getClass().getResource("/br/ufrpe/cine_rural/gui/EstiloFilmes.css")
                                         .toExternalForm()
